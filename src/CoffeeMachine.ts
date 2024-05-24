@@ -15,7 +15,7 @@ export class CoffeeMachine {
 
   makeDrink() {
     if (this.sugar > 0) {
-      this.drinkMaker.execute(`${this.drinkType}:1:`);
+      this.drinkMaker.execute(`${this.drinkType}:${this.sugar}:`);
       return;
     }
     this.drinkMaker.execute(`${this.drinkType}::`);
@@ -31,6 +31,6 @@ export class CoffeeMachine {
   }
 
   addSugar() {
-    this.sugar = 1
+    this.sugar += 1
   }
 }
