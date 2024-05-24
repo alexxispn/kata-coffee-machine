@@ -1,7 +1,10 @@
 import { DrinkMaker } from "./DrinkMaker.js";
 
 export class CoffeeMachine {
+  private drinkMaker: DrinkMaker;
+
   constructor(drinkMaker: DrinkMaker) {
+    this.drinkMaker = drinkMaker;
 
   }
 
@@ -10,6 +13,6 @@ export class CoffeeMachine {
   }
 
   makeDrink() {
-
+    this.drinkMaker.execute("C::");
   }
 }
