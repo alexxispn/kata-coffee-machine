@@ -3,6 +3,7 @@ import { DrinkMaker } from "./DrinkMaker.js";
 export class CoffeeMachine {
   private drinkMaker: DrinkMaker;
   private selectedCoffee: boolean = false;
+  private selectedChocolate: boolean = false;
 
   constructor(drinkMaker: DrinkMaker) {
     this.drinkMaker = drinkMaker;
@@ -14,6 +15,11 @@ export class CoffeeMachine {
   }
 
   makeDrink() {
+    if (this.selectedChocolate) {
+      this.drinkMaker.execute("H::");
+      return;
+    }
+
     if (this.selectedCoffee)
       this.drinkMaker.execute("C::");
     else
@@ -26,6 +32,6 @@ export class CoffeeMachine {
   }
 
   selectChocolate() {
-    
+    this.selectedChocolate = true
   }
 }
