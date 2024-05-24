@@ -3,36 +3,38 @@ import { DrinkMaker } from "./DrinkMaker.js";
 import { CoffeeMachine } from "./CoffeeMachine.js";
 
 describe("CoffeeMachine", () => {
-  it("makes coffee", () => {
-    const drinkMaker: DrinkMaker = { execute: vi.fn() }
-    const coffeeMachine = new CoffeeMachine(drinkMaker)
+  describe("iteration 1", () => {
+    it("makes coffee", () => {
+      const drinkMaker: DrinkMaker = { execute: vi.fn() }
+      const coffeeMachine = new CoffeeMachine(drinkMaker)
 
-    coffeeMachine.selectCoffee()
-    coffeeMachine.makeDrink()
-    
-    expect(drinkMaker.execute).toHaveBeenCalledOnce()
-    expect(drinkMaker.execute).toHaveBeenCalledWith("C::")
-  })
+      coffeeMachine.selectCoffee()
+      coffeeMachine.makeDrink()
 
-  it("makes tea", () => {
-    const drinkMaker: DrinkMaker = { execute: vi.fn() }
-    const coffeeMachine = new CoffeeMachine(drinkMaker)
+      expect(drinkMaker.execute).toHaveBeenCalledOnce()
+      expect(drinkMaker.execute).toHaveBeenCalledWith("C::")
+    })
 
-    coffeeMachine.selectTea()
-    coffeeMachine.makeDrink()
+    it("makes tea", () => {
+      const drinkMaker: DrinkMaker = { execute: vi.fn() }
+      const coffeeMachine = new CoffeeMachine(drinkMaker)
 
-    expect(drinkMaker.execute).toHaveBeenCalledOnce()
-    expect(drinkMaker.execute).toHaveBeenCalledWith("T::")
-  })
+      coffeeMachine.selectTea()
+      coffeeMachine.makeDrink()
 
-  it("makes chocolate", () => {
-    const drinkMaker: DrinkMaker = { execute: vi.fn() }
-    const coffeeMachine = new CoffeeMachine(drinkMaker)
+      expect(drinkMaker.execute).toHaveBeenCalledOnce()
+      expect(drinkMaker.execute).toHaveBeenCalledWith("T::")
+    })
 
-    coffeeMachine.selectChocolate()
-    coffeeMachine.makeDrink()
+    it("makes chocolate", () => {
+      const drinkMaker: DrinkMaker = { execute: vi.fn() }
+      const coffeeMachine = new CoffeeMachine(drinkMaker)
 
-    expect(drinkMaker.execute).toHaveBeenCalledOnce()
-    expect(drinkMaker.execute).toHaveBeenCalledWith("H::")
-  })
+      coffeeMachine.selectChocolate()
+      coffeeMachine.makeDrink()
+
+      expect(drinkMaker.execute).toHaveBeenCalledOnce()
+      expect(drinkMaker.execute).toHaveBeenCalledWith("H::")
+    })
+  });
 })
