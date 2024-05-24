@@ -66,9 +66,19 @@ describe("CoffeeMachine", () => {
 
     it('displays an error message when drink has not been selected', () => {
       coffeeMachine.makeDrink()
-      
+
       expect(drinkMaker.execute).toHaveBeenCalledOnce()
       expect(drinkMaker.execute).toHaveBeenCalledWith("M:drink-has-not-been-selected")
+    })
+
+    it('resets the coffee machine on new order', () => {
+      coffeeMachine.selectCoffee()
+      coffeeMachine.addSugar()
+      coffeeMachine.selectTea()
+      coffeeMachine.makeDrink()
+
+      expect(drinkMaker.execute).toHaveBeenCalledOnce()
+      expect(drinkMaker.execute).toHaveBeenCalledWith("T::")
     })
   });
 })
