@@ -71,7 +71,7 @@ describe("CoffeeMachine", () => {
       expect(drinkMaker.execute).toHaveBeenCalledWith("M:drink-has-not-been-selected")
     })
 
-    it('resets the coffee machine on new order', () => {
+    it('resets the coffee machine on new order of tea', () => {
       coffeeMachine.selectCoffee()
       coffeeMachine.addSugar()
       coffeeMachine.selectTea()
@@ -79,6 +79,16 @@ describe("CoffeeMachine", () => {
 
       expect(drinkMaker.execute).toHaveBeenCalledOnce()
       expect(drinkMaker.execute).toHaveBeenCalledWith("T::")
+    })
+
+    it('resets the coffee machine on new order coffee', () => {
+      coffeeMachine.selectCoffee()
+      coffeeMachine.addSugar()
+      coffeeMachine.selectCoffee()
+      coffeeMachine.makeDrink()
+
+      expect(drinkMaker.execute).toHaveBeenCalledOnce()
+      expect(drinkMaker.execute).toHaveBeenCalledWith("C::")
     })
   });
 })
