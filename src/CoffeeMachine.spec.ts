@@ -1,22 +1,6 @@
-import { describe, it, expect, vi} from "vitest"
-
-interface DrinkMaker {
-  execute(command: string): void
-}
-
-class CoffeeMachine {
-  constructor(drinkMaker: DrinkMaker) {
-
-  }
-
-  selectCoffee() {
-
-  }
-
-  makeDrink() {
-
-  }
-}
+import { describe, expect, it, vi } from "vitest";
+import { DrinkMaker } from "./DrinkMaker.js";
+import { CoffeeMachine } from "./CoffeeMachine.js";
 
 describe("CoffeeMachine", () => {
   it("makes coffee", () => {
