@@ -81,7 +81,7 @@ describe("CoffeeMachine", () => {
       expect(drinkMaker.execute).toHaveBeenCalledWith("T::")
     })
 
-    it('resets the coffee machine on new order coffee', () => {
+    it('resets the coffee machine on new order of coffee', () => {
       coffeeMachine.selectCoffee()
       coffeeMachine.addSugar()
       coffeeMachine.selectCoffee()
@@ -89,6 +89,16 @@ describe("CoffeeMachine", () => {
 
       expect(drinkMaker.execute).toHaveBeenCalledOnce()
       expect(drinkMaker.execute).toHaveBeenCalledWith("C::")
+    })
+
+    it('resets the coffee machine on new order of chocolate', () => {
+      coffeeMachine.selectCoffee()
+      coffeeMachine.addSugar()
+      coffeeMachine.selectChocolate()
+      coffeeMachine.makeDrink()
+
+      expect(drinkMaker.execute).toHaveBeenCalledOnce()
+      expect(drinkMaker.execute).toHaveBeenCalledWith("H::")
     })
   });
 })
