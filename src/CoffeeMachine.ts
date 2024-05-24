@@ -14,16 +14,19 @@ export class CoffeeMachine {
   }
 
   makeDrink(): void {
+    this.drinkMaker.execute(this.createCommand());
+  }
+
+  private createCommand() {
     if (this.drinkType === "") {
-      this.drinkMaker.execute(`M:drink-has-not-been-selected`);
-      return
+      return `M:drink-has-not-been-selected`
     }
 
     if (this.sugar > 0) {
-      this.drinkMaker.execute(`${this.drinkType}:${this.sugar}:0`);
-      return;
+      return `${this.drinkType}:${this.sugar}:0`
     }
-    this.drinkMaker.execute(`${this.drinkType}::`);
+
+    return `${this.drinkType}::`
   }
 
 
