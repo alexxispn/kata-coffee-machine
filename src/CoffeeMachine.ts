@@ -15,4 +15,8 @@ export class CoffeeMachine {
   makeDrink() {
     this.drinkMaker.execute("C::");
   }
+
+  selectTea() {
+
+  }
 }

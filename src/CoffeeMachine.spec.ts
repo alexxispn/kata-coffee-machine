@@ -12,4 +12,14 @@ describe("CoffeeMachine", () => {
 
     expect(drinkMaker.execute).toHaveBeenCalledWith("C::")
   })
+
+  it("makes tea", () => {
+    const drinkMaker: DrinkMaker = { execute: vi.fn() }
+    const coffeeMachine = new CoffeeMachine(drinkMaker)
+
+    coffeeMachine.selectTea()
+    coffeeMachine.makeDrink()
+
+    expect(drinkMaker.execute).toHaveBeenCalledWith("T::")
+  })
 })
