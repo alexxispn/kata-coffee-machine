@@ -11,6 +11,7 @@ export class CoffeeMachine {
 
   selectCoffee() {
     this.drinkType = "C";
+    this.sugar = 0;
   }
 
   makeDrink(): void {
