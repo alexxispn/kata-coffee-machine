@@ -24,4 +24,8 @@ export class CoffeeMachine {
   selectTea() {
 
   }
+
+  selectChocolate() {
+    
+  }
 }

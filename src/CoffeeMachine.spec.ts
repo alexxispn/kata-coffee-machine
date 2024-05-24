@@ -24,4 +24,15 @@ describe("CoffeeMachine", () => {
     expect(drinkMaker.execute).toHaveBeenCalledOnce()
     expect(drinkMaker.execute).toHaveBeenCalledWith("T::")
   })
+
+  it("makes chocolate", () => {
+    const drinkMaker: DrinkMaker = { execute: vi.fn() }
+    const coffeeMachine = new CoffeeMachine(drinkMaker)
+
+    coffeeMachine.selectChocolate()
+    coffeeMachine.makeDrink()
+
+    expect(drinkMaker.execute).toHaveBeenCalledOnce()
+    expect(drinkMaker.execute).toHaveBeenCalledWith("H::")
+  })
 })
