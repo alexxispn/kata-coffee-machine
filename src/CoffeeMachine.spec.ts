@@ -44,5 +44,15 @@ describe("CoffeeMachine", () => {
       expect(drinkMaker.execute).toHaveBeenCalledOnce()
       expect(drinkMaker.execute).toHaveBeenCalledWith(expect.stringMatching(/C:1/))
     })
+
+    it("adds two of sugar", () => {
+      coffeeMachine.selectCoffee()
+      coffeeMachine.addSugar()
+      coffeeMachine.addSugar()
+      coffeeMachine.makeDrink()
+
+      expect(drinkMaker.execute).toHaveBeenCalledOnce()
+      expect(drinkMaker.execute).toHaveBeenCalledWith(expect.stringMatching(/C:2/))
+    })
   });
 })
