@@ -13,7 +13,12 @@ export class CoffeeMachine {
     this.drinkType = "C";
   }
 
-  makeDrink() {
+  makeDrink(): void {
+    if (this.drinkType === "") {
+      this.drinkMaker.execute(`M:drink-has-not-been-selected`);
+      return
+    }
+
     if (this.sugar > 0) {
       this.drinkMaker.execute(`${this.drinkType}:${this.sugar}:0`);
       return;
