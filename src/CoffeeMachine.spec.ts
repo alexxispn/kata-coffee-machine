@@ -1,13 +1,18 @@
-import { describe, expect, it, vi } from "vitest";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 import { DrinkMaker } from "./DrinkMaker.js";
 import { CoffeeMachine } from "./CoffeeMachine.js";
 
 describe("CoffeeMachine", () => {
+  let drinkMaker: DrinkMaker
+  let coffeeMachine:CoffeeMachine
+
+  beforeEach(() => {
+    drinkMaker = { execute: vi.fn() }
+    coffeeMachine = new CoffeeMachine(drinkMaker)
+  })
+
   describe("iteration 1", () => {
     it("makes coffee", () => {
-      const drinkMaker: DrinkMaker = { execute: vi.fn() }
-      const coffeeMachine = new CoffeeMachine(drinkMaker)
-
       coffeeMachine.selectCoffee()
       coffeeMachine.makeDrink()
 
@@ -16,9 +21,6 @@ describe("CoffeeMachine", () => {
     })
 
     it("makes tea", () => {
-      const drinkMaker: DrinkMaker = { execute: vi.fn() }
-      const coffeeMachine = new CoffeeMachine(drinkMaker)
-
       coffeeMachine.selectTea()
       coffeeMachine.makeDrink()
 
@@ -27,9 +29,6 @@ describe("CoffeeMachine", () => {
     })
 
     it("makes chocolate", () => {
-      const drinkMaker: DrinkMaker = { execute: vi.fn() }
-      const coffeeMachine = new CoffeeMachine(drinkMaker)
-
       coffeeMachine.selectChocolate()
       coffeeMachine.makeDrink()
 
