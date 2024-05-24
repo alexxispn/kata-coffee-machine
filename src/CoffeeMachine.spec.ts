@@ -9,7 +9,8 @@ describe("CoffeeMachine", () => {
 
     coffeeMachine.selectCoffee()
     coffeeMachine.makeDrink()
-
+    
+    expect(drinkMaker.execute).toHaveBeenCalledOnce()
     expect(drinkMaker.execute).toHaveBeenCalledWith("C::")
   })
 
@@ -20,6 +21,7 @@ describe("CoffeeMachine", () => {
     coffeeMachine.selectTea()
     coffeeMachine.makeDrink()
 
+    expect(drinkMaker.execute).toHaveBeenCalledOnce()
     expect(drinkMaker.execute).toHaveBeenCalledWith("T::")
   })
 })
