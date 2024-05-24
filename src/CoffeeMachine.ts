@@ -10,11 +10,15 @@ export class ProcessingOrder {
   }
 
   toCommand() {
+    return `${this.drinkType}${this.getSugarAndStick()}`
+  }
+
+  private getSugarAndStick() {
     if (this.sugar > 0) {
-      return `${this.drinkType}:${this.sugar}:0`
+      return `:${this.sugar}:0`;
     }
 
-    return `${this.drinkType}::`
+    return `::`
   }
 }
 
