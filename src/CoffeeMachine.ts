@@ -38,6 +38,7 @@ export class CoffeeMachine {
 
   selectChocolate() {
     this.drinkType = "H"
+    this.sugar = 0;
   }
 
   addSugar() {
